@@ -9,7 +9,7 @@ public class Edge extends DefaultWeightedEdge{
 	
 	private String start;
 	private String end;
-	private int weight = 1;
+	private double weigth = 1.0;
 	
 	public Edge(){
 		super();
@@ -20,10 +20,10 @@ public class Edge extends DefaultWeightedEdge{
 		this.end = end;
 	}
 	
-	public Edge(String start, String end, int weigth){
+	public Edge(String start, String end, double weigth){
 		this.start = start;
 		this.end = end;
-		this.weight = weigth;
+		this.weigth = weigth;
 	}
 	
 	public static Edge init(String line) throws Exception{
@@ -31,7 +31,7 @@ public class Edge extends DefaultWeightedEdge{
 		if(splitted.length == 3){
 			return new Edge(splitted[1], splitted[2]);
 		}else if(splitted.length >= 4){
-			return new Edge(splitted[1], splitted[2], Integer.parseInt(splitted[3]));
+			return new Edge(splitted[1], splitted[2], Double.parseDouble(splitted[3]));
 		}else{
 			throw new Exception("Edge formation is not correct. Edge [" + line + "]");
 		}
@@ -45,12 +45,11 @@ public class Edge extends DefaultWeightedEdge{
 		return end;
 	}
 
-	public int getWeight() {
-		return weight;
+	public double getWeight() {
+		return weigth;
 	}
-
-	@Override
+	
 	public String toString(){
-		return String.valueOf(getWeight());
+		return String.valueOf(this.getWeight());
 	}
 }

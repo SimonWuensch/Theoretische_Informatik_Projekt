@@ -13,6 +13,7 @@ import com.ssn.sim.gri.model.Graph;
 
 public class GraphVisualizationHelper {
 	public static void createAndShowGui(Graph graph) {
+		System.out.println("Create and Show Gui ...");
 		JFrame frame = new JFrame(graph.getFileName() + " Graph");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
