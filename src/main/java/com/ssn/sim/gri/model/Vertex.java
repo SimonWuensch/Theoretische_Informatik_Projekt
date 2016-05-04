@@ -7,15 +7,15 @@ public class Vertex {
 	public static String DESCRIPTION = "knoten";
 	
 	private String name;
-	private String data = "DEFAULT";
+	private int color = 100000000;
 	
 	public Vertex(String name){
 		this.name = name;
 	}
 	
-	public Vertex(String name, String data){
+	public Vertex(String name, int color){
 		this.name = name;
-		this.data = data;
+		this.color = color;
 	}
 	
 	public static Vertex init(String line) throws Exception{
@@ -23,7 +23,7 @@ public class Vertex {
 		if(splitted.length == 2){
 			return new Vertex(splitted[1]);
 		}else if(splitted.length >= 3){
-			return new Vertex(splitted[1], splitted[2]);
+			return new Vertex(splitted[1], Integer.valueOf(splitted[2]));
 		}else{
 			throw new Exception("Vertex formation is not correct. Vertex [" + line + "]");
 		}
@@ -33,8 +33,8 @@ public class Vertex {
 		return name;
 	}
 	
-	public String getData(){
-		return data;
+	public int getData(){
+		return color;
 	}
 	
 	@Override
