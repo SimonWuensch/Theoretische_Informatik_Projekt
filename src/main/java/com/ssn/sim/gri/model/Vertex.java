@@ -1,13 +1,16 @@
 package com.ssn.sim.gri.model;
 
-import com.google.gson.Gson;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Vertex {
 	
+	public static int INFINITY = 1000000000;
 	public static String DESCRIPTION = "knoten";
 	
 	private String name;
-	private int color = 100000000;
+	private Set<Vertex> neighbors = new HashSet<Vertex>();
+	private int color = INFINITY;
 	
 	public Vertex(String name){
 		this.name = name;
@@ -33,13 +36,36 @@ public class Vertex {
 		return name;
 	}
 	
-	public int getData(){
+	public int getColor(){
 		return color;
+	}
+	
+	public void setColor(int color){
+		this.color = color;
+	}
+		
+	public Set<Vertex> getNeighbors() {
+		return neighbors;
+	}
+	
+	public Set<Integer> getNeighborColors(){
+		Set<Integer> colors = new HashSet<Integer>();
+		for(Vertex vertex : getNeighbors()){
+			colors.add(vertex.getColor());
+		}
+		return colors;
+	}
+	
+	public void addNeighbor(Vertex vertex){
+		neighbors.add(vertex);
 	}
 	
 	@Override
 	public String toString(){
-		return new Gson().toJson(this);
+		return new StringBuilder().append("[")//
+				.append("Name:").append(getName()).append(", ")//
+				.append("Color:").append(getColor())//
+				.append("]").toString();
 	}
 
 }

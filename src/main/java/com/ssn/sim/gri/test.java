@@ -22,10 +22,10 @@ public class test {
 		Graph graph = Reader.readInFromTxTDoc(path + "\\" + fileName);
 		System.out.println(fileName + ": " + graph.getNodes().size() + " - " + graph.getEdges().size());
 		
-		 SwingUtilities.invokeLater(new Runnable() {
-	            public void run() {
-	                GraphVisualizationHelper.createAndShowGui(graph);
-	            }
-	        });
+//		 SwingUtilities.invokeLater(new Runnable() {
+//	            public void run() {
+//	                GraphVisualizationHelper.createAndShowGui(graph);
+//	            }
+//	        });
 	}
 }
